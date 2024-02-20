@@ -1,0 +1,30 @@
+### Creating new TwitchEmbed instance
+`TwitchEmbed` allows you to embed anything, including a player and/or chat. It also contains a `TwitchPlayer`, which can be interacted by calling `embed.getPlayer()`:
+```ts
+const embed = new TwitchEmbed(
+    'twitch-embed', 
+    options: {
+        width: '1280',
+        height: '720',
+        channel: 'anivire_',
+        parent: ['anivire.xyz']
+    });
+```
+
+`width`: Width of the embedded window, in pixels. Can be expressed as a percentage, by passing a string like `50%`. Recommended minimum: `400`,
+
+`height`: Height of the embedded window, in pixels. Can be expressed as a percentage, by passing a string like `100%`. Recommended minimum: `300`,
+
+`parent?`: Only required if your site is embedded on any domain(s) other than the one that instantiates the Twitch embed.Example parent parameter: `["streamernews.example.com", "embed.example.com"]`,
+
+`channel?`: Channel name (for a live stream). If channel is specified along with video and/or collection, only channel is used. To change the channel or video later, use `setChannel`, `setVideo`, or `setCollection`,
+
+`video?`: Video ID. If both video and collection are specified, the specified collection starts playing from the specified video. If the video is not in the collection, collection is ignored and the specified video is played. To change the channel or video later, use `setChannel`, `setVideo`, or `setCollection`,
+
+`collection?`: Collection ID. If both video and collection are specified, the specified collection starts playing from the specified video. If the video is not in the collection, collection is ignored and the specified video is played. To change the channel or video later, use `setChannel`, `setVideo`, or `setCollection`,
+
+`autoplay?`: If `true`, the video starts playing automatically, without the user clicking play. The exception is mobile devices, on which video cannot be played without user interaction. Default: `true`,
+
+`muted?`: Specifies whether the initial state of the video is muted. Default: `false`,
+
+`time?`: Only valid for Video on Demand content. Time in the video where playback starts. Specifies hours, minutes, and seconds. Default: 0h0m0s (the start of the video)

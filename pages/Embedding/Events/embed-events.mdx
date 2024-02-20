@@ -1,0 +1,19 @@
+### Start listen events
+```ts
+const embed = new TwitchEmbed(
+    'twitch-embed', 
+    options: {
+        width: '1280',
+        height: '720',
+        channel: 'anivire_',
+        parent: ['anivire.xyz']
+    });
+
+embed.addEventListener(TwitchEmbedEvents.READY, () => {
+  console.info('Embed is ready to accept function calls.')
+});
+```
+
+`READY`: Player is ready to accept function calls,
+
+`PLAY`: Player just unpaused, will either start video playback or start buffering,
